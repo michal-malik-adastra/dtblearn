@@ -23,7 +23,7 @@ dag = DAG(
     
 run_dimensions = BashOperator(
     task_id='run_dimensions',
-    bash_command='/home/airflow/venv/bin/dbt run --select tag:tag_dim --project-dir /home/airflow/dtblearn /home/airflow/custom.log 2>&1',
+    bash_command='/home/airflow/venv/bin/dbt run --select tag:tag_dim --project-dir /home/airflow/dtblearn > /home/airflow/custom.log 2>&1',
     dag=dag
 )
 
