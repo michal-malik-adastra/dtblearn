@@ -34,7 +34,7 @@ run_facts = BashOperator(
 )
 
 run_fullmoon = BashOperator(
-    task_id='run_facts',
+    task_id='run_fullmoon_mart',
     bash_command='/home/airflow/venv/bin/dbt run --select tag:tag_fullmoon_mart --project-dir /home/airflow/dtblearn',
     dag=dag
 )
