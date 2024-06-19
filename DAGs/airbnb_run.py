@@ -33,6 +33,12 @@ run_facts = BashOperator(
     dag=dag
 )
 
+seed = BashOperator(
+    task_id='seed',
+    bash_command='/home/airflow/venv/bin/dbt seed --project-dir /home/airflow/dtblearn > /home/airflow/custom.log',
+    dag=dag
+)
+
 run_fullmoon = BashOperator(
     task_id='run_fullmoon_mart',
     bash_command='/home/airflow/venv/bin/dbt run --select tag:tag_fullmoon_mart --project-dir /home/airflow/dtblearn > /home/airflow/custom.log',
@@ -43,3 +49,4 @@ start_task = DummyOperator(task_id='start_task', dag=dag)
 end_task = DummyOperator(task_id='end_task', dag=dag)
 
 start_task >> run_dimensions >> run_facts >> run_fullmoon >> end_task
+start_task >> seed >> run_fullmoon
