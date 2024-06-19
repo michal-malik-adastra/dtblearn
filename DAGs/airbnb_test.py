@@ -14,7 +14,7 @@ default_args = {
 }
 
 dag = DAG(
-    dag_id='airbnb_run',
+    dag_id='airbnb_test',
     default_args=default_args,
     description='This dag runs data analytics on top of netflix datasets',
     schedule_interval=None,
