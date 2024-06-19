@@ -23,13 +23,13 @@ dag = DAG(
 
 test = BashOperator(
     task_id='test',
-    bash_command='/home/airflow/venv/bin/dbt test --select tag:tag_test --project-dir /home/airflow/dbtlearn',
+    bash_command='/home/airflow/venv/bin/dbt test --select tag:tag_test --project-dir /home/airflow/dtblearn',
     dag=dag
 )
 
 test_all = BashOperator(
     task_id='test_all',
-    bash_command='/home/airflow/venv/bin/dbt test --project-dir /home/airflow/dbtlearn',
+    bash_command='/home/airflow/venv/bin/dbt test --project-dir /home/airflow/dtblearn',
     dag=dag
 )
 

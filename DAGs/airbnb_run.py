@@ -23,19 +23,19 @@ dag = DAG(
     
 run_dimensions = BashOperator(
     task_id='run_dimensions',
-    bash_command='/home/airflow/venv/bin/dbt run --select tag:tag_dim --project-dir /home/airflow/dbtlearn',
+    bash_command='/home/airflow/venv/bin/dbt run --select tag:tag_dim --project-dir /home/airflow/dtblearn',
     dag=dag
 )
 
 run_facts = BashOperator(
     task_id='run_facts',
-    bash_command='/home/airflow/venv/bin/dbt run --select tag:tag_fct --project-dir /home/airflow/dbtlearn',
+    bash_command='/home/airflow/venv/bin/dbt run --select tag:tag_fct --project-dir /home/airflow/dtblearn',
     dag=dag
 )
 
 run_fullmoon = BashOperator(
     task_id='run_facts',
-    bash_command='/home/airflow/venv/bin/dbt run --select tag:tag_fullmoon_mart --project-dir /home/airflow/dbtlearn',
+    bash_command='/home/airflow/venv/bin/dbt run --select tag:tag_fullmoon_mart --project-dir /home/airflow/dtblearn',
     dag=dag
 )
 
